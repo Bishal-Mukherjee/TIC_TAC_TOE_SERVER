@@ -26,6 +26,10 @@ mongoose
 app.use("/api/users", require("./routes/user"));
 app.use("/api/game", require("./routes/game"));
 
+app.get("/", (req, res) => {
+  return res.status(200).json({ message: "SERVER_WORKING" });
+});
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
